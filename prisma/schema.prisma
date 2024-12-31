@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model cadastro {
+  id          Int       @id @default(autoincrement())
+  matricula   String    @db.VarChar(10) 
+  nome        String    @db.VarChar(80)
+  nascimento  DateTime  @db.Date
+  sexo        String    @db.VarChar(15)
+  pai         String    @db.VarChar(80)
+  mae         String    @db.VarChar(80)
+  identidade  String    @db.VarChar(20)
+  cpf         String    @db.VarChar(15)
+  endereco    String    @db.VarChar(120)
+  funcao      String    @db.VarChar(20)
+  ingresso    DateTime  @db.Date
+  unidade     String    @db.VarChar(80)
+  telefone    String    @db.VarChar(30)
+  email       String    @db.VarChar(60)
+  foto        String    @db.VarChar(8)
+  ativo       String    @db.VarChar(1)
+  observacoes String
+  ht          Int
+  dr          DateTime? @db.Date
+  pwd         String    @db.VarChar(100)
+}
